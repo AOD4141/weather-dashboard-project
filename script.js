@@ -6,7 +6,7 @@ let weatherCardsDiv = document.querySelector(".weather-cards");
 let searched = document.querySelector("#searchdata");
 let searchHistory = (localStorage.searchHistory) ? JSON.parse(localStorage.searchHistory) : [];
 
-const API_KEY = "249281e6cc79f719d0132c7ea0c3b402";
+const API_KEY = "11f1ca91743d6fcba2f46ab27bff8cc4";
 
 const createWeatherCard = (cityName, weatherItem, index) => {
     if(index === 0) { 
