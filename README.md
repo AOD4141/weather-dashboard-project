@@ -3,7 +3,7 @@ The purpose is to create a weather dashboard using another application API to re
 
 ## Table of Contents
 
-* Box for city search
+* Search box for city 
 * Date
 * Icon representing weather conditions
 * Temperature
@@ -29,7 +29,7 @@ The purpose is to create a weather dashboard using another application API to re
 
 ## Link to page
 
-
+https://aod4141.github.io/weather-dashboard-project/
 
 ## Link to repo
 
