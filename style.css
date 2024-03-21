@@ -5,23 +5,26 @@
     font-family:'Open Sans', sans-serif;
 }
 
-body{ background:rgb(136, 133, 133);}
+body{ background:#E3F2FD;}
 
 h1{
     background: rgb(6, 154, 195);
     font-size: 28px;
     text-align:center;
-    padding: 18px opx;
-    color:rgb(246, 238, 238);
+    padding: 18px 0px;
+    color:#fff;
 }
 
 .container{display:flex;
 gap: 35px;
-padding:31px;
+padding:30px;
 }
 
 .weather-input{
     width:550px;
+}
+
+.weather-input input{
     height:46px;
     width:100%;
     font-size:17px;
@@ -40,7 +43,7 @@ padding:31px;
 .weather-input .seperator{
     height:1px;width:100%;
     margin:25px 0px;
-    background:rgba(246, 238, 238, 0.719);
+    background:#BBBBBB;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -57,7 +60,7 @@ padding:31px;
 
 .weather-input button {
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 0px;
     cursor: pointer;
     outline: none;
     border: none;
@@ -98,4 +101,43 @@ padding:31px;
     font-size: 1.7rem;
   }
 
-  
+  .weather-data h6 {
+    margin-top: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .current-weather .icon {
+    text-align: center;
+  }
+  .current-weather .icon img {
+    max-width: 120px;
+    margin-top: -15px;
+  }
+  .current-weather .icon h6 {
+    margin-top: -10px;
+    text-transform: capitalize;
+  }
+  .days-forecast h2 {
+    margin: 20px 0;
+    font-size: 1.5rem;
+  }
+  .days-forecast .weather-cards {
+    display: flex;
+    gap: 20px;
+  }
+  .weather-cards .card {
+    color: #fff;
+    padding: 18px 16px;
+    list-style: none;
+    width: calc(100% / 5);
+    background: #6C757D;
+    border-radius: 5px;
+  }
+  .weather-cards .card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  .weather-cards .card img {
+    max-width: 70px;
+    margin: 5px 0 -12px 0;
+  }
