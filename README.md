@@ -1,4 +1,4 @@
-# Console-Finance-Challenge
+# Weather-Dashboard-Challenge
 The purpose is to create a weather dashboard using another application API to retrieve data on the app using HTML, CSS and Javascript to dynamically update the browser and dashboard when prompted with the search queries.
 
 ## Table of Contents
