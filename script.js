@@ -1,5 +1,6 @@
 let cityInput = document.querySelector("#city-input");
 let searchButton = document.querySelector(".search-btn");
+const locationButton = document.createElement("button");
 let currentWeatherDiv = document.querySelector(".current-weather");
 let weatherCardsDiv = document.querySelector(".weather-cards");
 let searched = document.querySelector("#searchdata");
@@ -72,8 +73,9 @@ const getCityCoordinates = () => {
     fetch(API_URL).then(response => response.json()).then(data => {
         if (!data.length) return alert(`No coordinates found for ${cityName}`);
         const { lat, lon, name } = data[0];
-        let cityDetail = (({ name, lat, lon }) => ({ name, lat, lon }))(data[0]);
-        searchHistory.push(cityDetail);
+        //let cityDetail = (({ name, lat, lon }) => ({ name, lat, lon }))(data[0]);
+        searchHistory.push(data[0]);
+        localStorage.searchHistory = JSON.stringify(searchHistory);
         getWeatherDetails(name, lat, lon);
     }).catch(() => {
         alert("An error occurred while fetching the coordinates!");
@@ -84,35 +86,29 @@ const getCityCoordinates = () => {
     
 }
 
+const detectClick = () =>{
+    for(let i in searchHistory){
+        //console.log(searchHistory[i]);
+        cityName = searchHistory[i].name;
+        if(cityName === locationButton.innerHTML){
+            getWeatherDetails(searchHistory[i].name,searchHistory[i].lat, searchHistory[i].lon);
+            break;
+        }
+        
 
-const getUserCoordinates = () => {
-    navigator.geolocation.getCurrentPosition(
-        position => {
-            const { latitude, longitude } = position.coords; // Get coordinates of user location
-            // Get city name from coordinates using reverse geocoding API
-            const API_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
-            fetch(API_URL).then(response => response.json()).then(data => {
-                const { name } = data[0];
-                getWeatherDetails(name, latitude, longitude);
-            }).catch(() => {
-                alert("An error occurred while fetching the city name!");
-            });
-        },
-        error => { // Show alert if user denied the location permission
-            if (error.code === error.PERMISSION_DENIED) {
-                alert("Geolocation request denied. Please reset location permission to grant access again.");
-            } else {
-                alert("Geolocation request error. Please reset location permission.");
-            }
-        });
+    }
 }
+
 
 let displaySearchHistory = () =>{
     searchHistory.forEach((search) => {
-        searched.innerHTML = `<button class="location-btn">${search.name}</button>`
+        const {name, lat, lon} = search;
+        locationButton.innerHTML =`${search.name}`;
+        searched.appendChild(locationButton);
       });
 
 }
 
 searchButton.addEventListener("click", getCityCoordinates);
 cityInput.addEventListener("keyup", e => e.key === "Enter" && getCityCoordinates());
+locationButton.addEventListener("click", detectClick);
