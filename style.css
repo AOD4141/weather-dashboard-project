@@ -71,3 +71,29 @@ padding:31px;
   .weather-input .search-btn:hover {
     background: #2c52ed;
   }
+
+  .weather-input .location-btn{
+    background: #6C757D;
+    margin-top: 15px;
+    padding: 3px 3px;
+}
+
+.weather-input .location-btn:hover {
+    background: #5c636a;
+  }
+  .weather-data {
+    width: 100%;
+  }
+  .weather-data .current-weather {
+    color: #fff;
+    background: #5372F0;
+    border-radius: 5px;
+    padding: 20px 70px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .current-weather h2 {
+    font-weight: 700;
+    font-size: 1.7rem;
+  }
